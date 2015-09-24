@@ -8,6 +8,8 @@ set :deploy_user, 'ntp'
 set :password, '123'
 # set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :branch, 'develop'
+set :use_sudo, false
+set :pty, true
 
 namespace :deploy do
   desc 'Invoke a rake command'
