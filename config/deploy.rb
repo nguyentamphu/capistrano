@@ -5,7 +5,7 @@ set :application, 'capistrano'
 set :repo_url, 'git@github.com:nguyentamphu/capistrano.git'
 set :deploy_to, '/home/ntp/capistrano'
 set :deploy_user, 'ntp'
-set :password: '123'
+set :password, '123'
 # set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :branch, 'develop'
 
