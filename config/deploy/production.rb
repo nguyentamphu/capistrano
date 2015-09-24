@@ -7,7 +7,8 @@
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
 
-
+user = "ntp"
+ip_address = "172.16.20.244"
 
 # role-based syntax
 # ==================
@@ -21,9 +22,13 @@
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 
-role :app, %w{ntp@172.16.20.244}
-role :web, %w{ntp@172.16.20.244}
-role :db,  %w{ntp@172.16.20.244}
+role :app, ["#{user}@#{ip_address}"]
+role :web, ["#{user}@#{ip_address}"]
+role :db,  ["#{user}@#{ip_address}"]
+
+# role :app, %w{ntp@172.16.20.244}
+# role :web, %w{ntp@172.16.20.244}
+# role :db,  %w{ntp@172.16.20.244}
 
 
 # Configuration
@@ -62,3 +67,18 @@ role :db,  %w{ntp@172.16.20.244}
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+
+server ip_address,
+  user: user,
+  roles: %w{web app db},
+  my_property: :my_value
+
+set :rails_env, 'production'
+
+set :bundle_flags, "--no-deployment"
+
+set :ssh_options, {
+  keys: %w(/home/ntp/.ssh/id_rsa),
+  forward_agent: true,
+  password: '123',
+}
