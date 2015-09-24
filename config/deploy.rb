@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:nguyentamphu/capistrano.git'
 set :deploy_to, '/home/ntp/capistrano'
 set :user, 'ntp'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :branch, 'develop'
 
 namespace :deploy do
 
