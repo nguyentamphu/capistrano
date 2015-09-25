@@ -4,11 +4,11 @@ lock '3.4.0'
 set :application, 'capistrano'
 set :repo_url, 'git@github.com:nguyentamphu/capistrano.git'
 set :deploy_to, '/home/ntp/capistrano'
-set :deploy_user, 'ntp'
+set :deploy_user, 'root'
 set :password, '123'
 # set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :branch, 'develop'
-set :use_sudo, false
+# set :use_sudo, false
 # set :pty, true
 
 namespace :deploy do
